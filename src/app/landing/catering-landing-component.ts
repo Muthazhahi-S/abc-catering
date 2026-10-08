@@ -1,32 +1,83 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-catering-landing',
   templateUrl: './catering-landing-component.html',
   styleUrl: './catering-landing-component.scss',
+  imports: [FormsModule],
 })
 export class CateringLandingComponent {
+
+eventType = '';
+eventDate = '';
+guestCount = '';
+eventLocation = '';
+foodPreference = '';
+customerName = '';
+customerMessage = '';
+
   readonly currentYear = new Date().getFullYear();
   readonly whatsappUrl =
     'https://wa.me/916314744100?text=Hi%20ABC%20Catering%2C%20I%20would%20like%20to%20know%20about%20your%20catering%20services.%20Please%20share%20the%20menu%20and%20pricing.';
   readonly phoneUrl = 'tel:+916314744100';
   readonly instagramUrl = 'https://www.instagram.com/mayilie_kavidhaigal/';
 
-  readonly services = [
-    { icon: 'bi-heart', title: 'Wedding Catering', description: 'A beautiful feast for your once-in-a-lifetime celebration.' },
-    { icon: 'bi-cake2', title: 'Birthday Functions', description: 'A joyful spread made for candles, wishes, and everyone you love.' },
-    { icon: 'bi-house-heart', title: 'Family Functions', description: 'Comforting favourites that bring the whole family together.' },
-    { icon: 'bi-briefcase', title: 'Corporate Events', description: 'Thoughtful menus for meetings, teams, and company celebrations.' },
-    { icon: 'bi-stars', title: 'Parties & Special Occasions', description: 'Good food and warm hospitality for every reason to celebrate.' },
-  ];
+readonly services = [
+  {
+    icon: 'bi-heart',
+    title: 'Wedding Catering',
+    description: 'Complete food service for weddings, receptions and traditional celebrations.',
+  },
+  {
+    icon: 'bi-cake2',
+    title: 'Birthday Functions',
+    description: 'Fresh and delicious food for birthday parties and family celebrations.',
+  },
+  {
+    icon: 'bi-house-heart',
+    title: 'Family Functions',
+    description: 'Homestyle meals and catering for family gatherings and special occasions.',
+  },
+  {
+    icon: 'bi-people',
+    title: 'Marriage & Reception',
+    description: 'Thoughtfully prepared menus for marriage functions and reception events.',
+  },
+  {
+    icon: 'bi-stars',
+    title: 'Special Occasions',
+    description: 'Flexible catering options for parties, celebrations and other important moments.',
+  },
+];
 
-  readonly menuItems = [
-    { icon: 'bi-flower1', title: 'Vegetarian', description: 'Fresh, colourful, and full of flavour' },
-    { icon: 'bi-fire', title: 'Non-Vegetarian', description: 'Hearty signature dishes for every guest' },
-    { icon: 'bi-egg-fried', title: 'Traditional Meals', description: 'Beloved classics, served with care' },
-    { icon: 'bi-basket2', title: 'Snacks & Starters', description: 'Delicious little bites to get things started' },
-    { icon: 'bi-cake', title: 'Desserts', description: 'A sweet finish to your celebration' },
-  ];
+ readonly menuItems = [
+  {
+    icon: 'bi-flower1',
+    title: 'Vegetarian Meals',
+    description: 'Freshly prepared vegetarian dishes and traditional South Indian meals.',
+  },
+  {
+    icon: 'bi-fire',
+    title: 'Non-Vegetarian',
+    description: 'Flavorful non-vegetarian dishes prepared fresh for your guests.',
+  },
+  {
+    icon: 'bi-egg-fried',
+    title: 'Traditional Meals',
+    description: 'Classic dishes prepared with familiar flavours for special occasions.',
+  },
+  {
+    icon: 'bi-basket2',
+    title: 'Starters & Snacks',
+    description: 'Tasty snacks and starters to welcome your guests and begin the celebration.',
+  },
+  {
+    icon: 'bi-cake',
+    title: 'Desserts',
+    description: 'Sweet treats and desserts to give your celebration a memorable finish.',
+  },
+];
 
   readonly galleryImages = [
     {
@@ -68,4 +119,25 @@ export class CateringLandingComponent {
     { icon: 'bi-heart', title: 'Reliable service', description: 'A friendly, experienced team that takes care of the details.' },
     { icon: 'bi-clock', title: 'On-time delivery', description: 'We plan ahead and arrive on schedule, so your celebration stays on track.' },
   ];
+
+submitEnquiry(): void {
+  const message = [
+    'Hi ABC Catering,',
+    '',
+    'I would like to enquire about catering.',
+    '',
+    `Name: ${this.customerName || 'Not provided'}`,
+    `Event: ${this.eventType || 'Not specified'}`,
+    `Date: ${this.eventDate || 'Not specified'}`,
+    `Guests: ${this.guestCount || 'Not specified'}`,
+    `Location: ${this.eventLocation || 'Not specified'}`,
+    `Food preference: ${this.foodPreference || 'Not specified'}`,
+    `Additional requirements: ${this.customerMessage || 'None'}`
+  ].join('\n');
+
+  const enquiryUrl =
+    `https://wa.me/[YOUR_EXISTING_PRIVATE_NUMBER]?text=${encodeURIComponent(message)}`;
+
+  window.open(enquiryUrl, '_blank', 'noopener,noreferrer');
+}
 }
