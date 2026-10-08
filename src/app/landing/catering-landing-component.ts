@@ -19,8 +19,8 @@ customerMessage = '';
 
   readonly currentYear = new Date().getFullYear();
   readonly whatsappUrl =
-    'https://wa.me/916314744100?text=Hi%20ABC%20Catering%2C%20I%20would%20like%20to%20know%20about%20your%20catering%20services.%20Please%20share%20the%20menu%20and%20pricing.';
-  readonly phoneUrl = 'tel:+916314744100';
+    'https://wa.me/916474144100?text=Hi%20ABC%20Catering%2C%20I%20would%20like%20to%20know%20about%20your%20catering%20services.%20Please%20share%20the%20menu%20and%20pricing.';
+  readonly phoneUrl = 'tel:+916474144100';
   readonly instagramUrl = 'https://www.instagram.com/mayilie_kavidhaigal/';
 
 readonly services = [
