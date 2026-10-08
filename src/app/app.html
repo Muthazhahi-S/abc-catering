@@ -1,0 +1,9 @@
+
+<app-header-component *ngIf="showLayout"></app-header-component>
+
+<main [class.landing-main]="isLandingPage">
+  <button *ngIf="!isLandingPage" (click)="goBack()" class="btn btn-link">&larr;Back</button>
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer-component *ngIf="showLayout"></app-footer-component>

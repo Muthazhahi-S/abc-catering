@@ -1,0 +1,21 @@
+<div class="card">
+    <h3>Delivery Partner - Assigned Orders</h3>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div *ngIf="orders?.length; else noOrders">
+<div class="card mb-2 p-2" *ngFor="let o of orders">
+    <div><strong>Order #{{o.id}}</strong></div>
+     <div><strong>- Status {{o.status}}</strong></div>
+      <div><strong>Customer {{o.customerName}} -Address: {{o.address}}</strong></div>
+       <div><strong>Total {{o.amount}}</strong></div>
+       <div style="margin-top: 8px;">
+        <button (click)="markPicked(o.id)" *ngIf="o.status === 'ASSIGNED_TO_DP'">Mark Picked</button>
+        <button (click)="markOutForDelivery(o.id)" *ngIf="o.status === 'DP_PICKED'">Out for Delivery</button>
+        <button (click)="markDelivered(o.id)" *ngIf="o.status === 'OUT_FOR_DELIVERY'">Mark Delivered</button>
+       </div>
+</div>
+    </div>
+
+    <ng-template #noOrders>
+        <div>No assigned orders.</div>
+    </ng-template>
+</div>

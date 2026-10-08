@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="logo">
+    <a  routerLink="/">🍴 Foodie</a>
+  </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <div class="ms-auto d-flex align-items-center">
+       <input type="text" class="form-control me-3" placeholder="Search restaurants..." (input)="onSearch($event)" style="width: 220px;">
+
+      <a routerLink="/customer/cart" class="btn btn-outline-primary position-relative me-3"><i class="bi bi-cart"></i>
+        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">{{cartCount}}</span>
+      </a>
+      <div *ngIf="userEmail; else loginBtn" class="profile-container">
+        <span class="user-profile" (click)="toggleMenu()">
+          {{userEmail.charAt(0) | uppercase}}
+        </span>
+
+    
+
+<div class="dropdown" [hidden]="!menuOpen">
+  <a *ngIf="isAdmin" routerLink="/admin/dashboard">Admin</a>
+  <a *ngIf="isPartner" routerLink="/delivery/dashboard">Delivery Partner</a>
+  <a  *ngIf="isCustomer" routerLink="/customer/cart">My Orders</a>
+   <a routerLink="/customer/track-order">Track Orders</a>
+  <hr>
+  <button class="dropdown-item" (click)="logout()">Logout</button>
+</div>
+  </div>
+
+    
+       <ng-template #loginBtn>
+<a routerLink="/auth/login" class="login-btn">Login</a>
+       </ng-template>
+    </div>
+  </div>
+
+</nav>
+</header>

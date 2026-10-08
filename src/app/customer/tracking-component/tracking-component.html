@@ -1,0 +1,23 @@
+
+<div class="container mt-4" *ngIf="order; else noOrder">
+  <h2 class="text-center mb-4">Track Your Order</h2>
+
+  <div class="card p-4 shadow-sm">
+    <h5>OrderId: {{order.id}}</h5>
+    <p><strong>Name:</strong> {{order.customerName}}</p>
+    <p><strong>Amount:</strong><i class="bi bi-currency-rupee"></i> {{order.amount}}</p>
+  </div>
+  <h4 class="mt-4 mb-3">Delivery Status</h4>
+  <div class="timeline">
+    <div *ngFor="let status of statuses" class="timeline-step">
+      <div class="circle" [class.completed]="isStepCompleted(status)">
+        <i *ngIf="isStepCompleted(status)" class="bi bi-check-lg text-white"></i>
+      </div>
+      <p class="text-center mt-2 text-capitalize">{{status}}</p>
+      <div class="line" *ngIf="status !== status[statuses.length - 1]"></div>
+    </div>
+  </div>
+</div>
+<ng-template #noOrder>
+  <div class="alert alert-warning text-center mt-4">Order not found!</div>
+</ng-template>

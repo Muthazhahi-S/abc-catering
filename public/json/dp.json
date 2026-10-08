@@ -1,0 +1,173 @@
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "name": "Spice Garden",
+            "cuisine": "Indian",
+            "rating": 4.5,
+            "deliveryTime": 30,
+            "image": "assets/images/spice-garden.jpg",
+            "menu": [
+                {
+                    "id": 101,
+                    "name": "Butter Chicken",
+                    "price": 250,
+                    "veg": false,
+                    "image": "assets/images/menu/butter-chicken.jpg"
+                },
+                {
+                    "id": 102,
+                    "name": "Paneer Tikka",
+                    "price": 180,
+                    "veg": true,
+                    "image": "assets/images/menu/panner-tikka.jpg"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Pizza Palace",
+            "cuisine": "Italian",
+            "rating": 3.7,
+            "deliveryTime": 30,
+            "image": "assets/images/pizza-palace.jpg",
+            "menu": [
+                {
+                    "id": 201,
+                    "name": "Margherita Pizza",
+                    "price": 250,
+                    "veg": false,
+                    "image": "assets/images/menu/margherita.jpg"
+                },
+                {
+                    "id": 202,
+                    "name": "Farmhouse Pizza",
+                    "price": 300,
+                    "veg": false,
+                    "image": "assets/images/menu/farmhouse.jpg"
+                },
+                {
+                    "id": 203,
+                    "name": "Garlic Bread",
+                    "price": 120,
+                    "veg": true,
+                    "image": "assets/images/menu/garlic-bread.jpg"
+                },
+                {
+                    "id": 204,
+                    "name": "Cheese Burst Pizza",
+                    "price": 320,
+                    "veg": true,
+                    "image": "assets/images/menu/cheese-brust.jpg"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Green Bowl",
+            "cuisine": "Healthy",
+            "rating": 4.7,
+            "deliveryTime": 25,
+            "image": "assets/images/green-bowl.jpg",
+            "menu": [
+                {
+                    "id": 301,
+                    "name": "Quinoa Salad",
+                    "price": 200,
+                    "veg": true,
+                    "image": "assets/images/menu/quinoa-Salad.jpg"
+                },
+                {
+                    "id": 302,
+                    "name": "Grilled Salmon Bowl",
+                    "price": 320,
+                    "veg": false,
+                    "image": "assets/images/menu/grilled-salmon-bowl.jpg"
+                },
+                {
+                    "id": 303,
+                    "name": "Veggie Salad",
+                    "price": 150,
+                    "veg": true,
+                    "image": "assets/images/menu/veggie-Salad.jpg"
+                },
+                {
+                    "id": 304,
+                    "name": "Avocado smoothie ",
+                    "price": 180,
+                    "veg": false,
+                    "image": "assets/images/menu/avacado-smoothie.jpg"
+                },
+                {
+                    "id": 305,
+                    "name": "Fruit Bowl ",
+                    "price": 200,
+                    "veg": false,
+                    "image": "assets/images/menu/fruit-bowl.jpg"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Burger Hub",
+            "cuisine": "Fast Food",
+            "rating": 4,
+            "deliveryTime": 20,
+            "image": "assets/images/burger-hub.jpg",
+            "menu": [
+                {
+                    "id": 401,
+                    "name": "Cheese Burger",
+                    "price": 180,
+                    "veg": true,
+                    "image": "assets/images/menu/cheese-burger.jpg"
+                },
+                {
+                    "id": 402,
+                    "name": "French Fries ",
+                    "price": 100,
+                    "veg": true,
+                    "image": "assets/images/menu/french-fries.jpg"
+                },
+                {
+                    "id": 403,
+                    "name": "Crispy Chicken Burger",
+                    "price": 200,
+                    "veg": false,
+                    "image": "assets/images/menu/crispy-chicken-burger.jpg"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Sweet Tooth",
+            "cuisine": "Desserts",
+            "rating": 5,
+            "deliveryTime": 20,
+            "image": "assets/images/sweet-tooth.jpg",
+            "menu": [
+                {
+                    "id": 501,
+                    "name": "Chocolate Lava Cake",
+                    "price": 150,
+                    "veg": true,
+                    "image": "assets/images/menu/lava-cake.jpg"
+                },
+                {
+                    "id": 502,
+                    "name": "Ice Cream Sundae",
+                    "price": 130,
+                    "veg": true,
+                    "image": "assets/images/menu/sundae.jpg"
+                },
+                {
+                    "id": 503,
+                    "name": "Strawberry Cheesecake",
+                    "price": 180,
+                    "veg": true,
+                    "image": "assets/images/menu/cheesecake.jpg"
+                }
+            ]
+        }
+    ]
+}

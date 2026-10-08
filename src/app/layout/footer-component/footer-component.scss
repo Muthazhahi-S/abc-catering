@@ -1,0 +1,22 @@
+.app-footer {
+  background: #2c3e50;
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

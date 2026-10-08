@@ -1,0 +1,66 @@
+{
+  "orders": [
+    {
+      "id": 1001,
+      "customerName":"Muthazhahi",
+      "phone":"9999999990",
+      "address":"12,Ganthi street,Chennai,TN",
+      "status": "packed",
+     
+"items":[
+  {
+    "id":101,
+    "name":"Butter Chicken",
+    "qty":1,
+    "price":250
+  },
+  {
+    "id":102,
+    "name":"Paneer Tikka",
+    "qty":1,
+    "price":180
+  }
+],
+  "payment":{
+    "method":"UPI",
+    "paid":true
+  },
+"assignTo":null,
+"restaurantsId": 1,
+"restaurantsName":"Spice Garden",
+"partnerId":null,
+"createdAt":"2025-11-21 T10:25:15.000Z"
+},
+{
+  "id": 1002,
+      "customerName":"Meena Devi",
+      "phone":"8888888888",
+      "address":"Coimbatore",
+      "status": "accepted",
+     
+"items":[
+  {
+    "id":201,
+    "name":"Farmhouse Pizza",
+    "qty":1,
+    "price":300
+  },
+  {
+    "id":202,
+    "name":"Garlic Bread",
+    "qty":1,
+    "price":120
+  }
+],
+  "payment":{
+    "method":"Cash",
+    "paid":false
+  },
+"assignTo":2,
+"restaurantsId": 2,
+"restaurantsName":"Pizza Palace",
+"partnerId":2,
+"createdAt":"2025-11-21 T11:00:05.000Z"
+}
+  ]
+}

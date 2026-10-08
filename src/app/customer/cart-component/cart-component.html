@@ -1,0 +1,35 @@
+
+
+<div class="cart-container">
+    <h2 class="cart-header">Your Cart</h2>
+    <div class="delivery-time">
+        <span>Delivery in 15 mins</span>
+    </div>
+
+      @for(item of items; track item.id){
+     <div class="cart-item">
+ <img [src]="item.img" alt="food" class="item-img"/>
+     </div>
+      <div class="item-info">
+            <h3>{{item.name}}</h3>
+            <p>{{item.qty}} X <i class="bi bi-currency-rupee"></i>{{item.price}}</p>
+        </div>
+         <div class="qty-controls">
+            <button (click)="decrease(item)">-</button>
+            <span>{{item.qty}}</span>
+            <button (click)="increase(item)">+</button>
+            <div class="price"><i class="bi bi-currency-rupee"></i>{{item.qty * item.price}}</div>
+        </div>
+<a routerLink="/customer/menu" class="add-more">+ Add more items</a>
+ 
+    }
+
+ <div class="coupon-box">
+    You unlocked<b>60% OFF</b>up tp 120<small>Apply coupon on checkout</small>
+ </div>
+ <div class="total-box">
+    <span>Total Amount</span>
+    <span>{{total}}</span>
+ </div>
+           <button class="checkout-btn" routerLink="/customer/checkout" >Process to Checkout</button>
+</div>

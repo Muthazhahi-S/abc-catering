@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-3">Delivery Partner Dashboard</h2>
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">{{(partner | async)?.name}}</h4>
+            <p><strong>PartnerId:</strong>{{(partner | async)?.id}}</p>
+            <p><strong>Phone:</strong>{{(partner | async)?.phone}}</p>
+             <p><strong>Vehicle:</strong>{{(partner | async)?.vehicle}}</p>
+        </div>
+    </div>
+    <h4 class="mb-3">Assigned Orders</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="(orders | async)?.length ===0">
+                    <td colspan="6" class="text-center p-4 text-muted">No assigned orders yet</td>
+                </tr>
+                <tr *ngFor="let o of orders | async" class="text-center">
+                    <td>{{o.id}}</td>
+                    <td>{{o.customerName}}</td>
+                    <td>{{o.address}}</td>
+                    <td><i class="bi bi-currency-rupee"></i>{{o.amount}}</td>
+                    <td><span class="badge bg-info">{{o.status | uppercase}}</span></td>
+                       
+                    <td>
+                         <button class="btn btn-sm btn-secondary me-1" *ngIf="o.status ==='pending'" (click)="updateStatus(o.id,'pending')">pending</button>
+                          <button class="btn btn-sm btn-dark me-1" *ngIf="o.status ==='accepted'" (click)="updateStatus(o.id,'accepted')">accepted</button>
+     <button class="btn btn-sm btn-warning me-1" *ngIf="o.status ==='cooking'" (click)="updateStatus(o.id,'cooking')">cooking</button>
+                          <button class="btn btn-sm btn-primary me-1" *ngIf="o.status ==='packed'" (click)="updateStatus(o.id,'packed')">packed</button>
+                        <button class="btn btn-sm btn-dark me-1" *ngIf="o.status ==='picked'" (click)="updateStatus(o.id,'picked')">Picked</button>
+                         <button class="btn btn-sm btn-purple me-1" *ngIf="o.status ==='on-the-way'" (click)="updateStatus(o.id,'on-the-way')">On The Way</button>
+                          <button class="btn btn-sm btn-success me-1" *ngIf="o.status ==='delivered'" (click)="updateStatus(o.id,'delivered')">Delivered</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

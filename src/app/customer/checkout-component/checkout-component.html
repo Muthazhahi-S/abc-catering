@@ -1,0 +1,116 @@
+
+<div class="checkout-container">
+
+<div class="left">
+    <div class="bill-card">
+        <h3 class="bill-title">Bill Details</h3>
+    <div class="bill-row">
+        <span>Item Total</span>
+        <span><i class="bi bi-currency-rupee"></i>{{total}}</span>
+    </div>
+    
+     <div class="bill-row">
+        <span>Delivery Fee</span>
+        <span><i class="bi bi-currency-rupee"></i>{{deliveryFee}}</span>
+    </div>
+     <div class="bill-row">
+        <span>Platform Fee</span>
+        <span><i class="bi bi-currency-rupee"></i>{{platFormFee}}</span>
+    </div>
+     <div class="bill-row">
+        <span>GST & Taxes</span>
+        <span><i class="bi bi-currency-rupee"></i>{{tax}}</span>
+    </div>
+     <div class="bill-row discount">
+        <span>Discount (60%)</span>
+        <span>- <i class="bi bi-currency-rupee"></i>{{discount}}</span>
+    </div>
+    <hr/>
+    <div class="bill-row total">
+        <span><strong>To Pay</strong></span>
+        <span><strong><i class="bi bi-currency-rupee"></i>{{totalPay}}</strong></span>
+    </div>
+     </div>
+</div>
+
+ <div class="checkout-right ">
+    <h2>Delivery Details</h2>
+    <form  [formGroup]="checkoutForm"(ngSubmit)="onSubmit()">
+        <div class="form-group">
+<label>Full Name<span class="text-danger">*</span></label>
+<input type="text" formControlName="name" placeholder="Enter Your full name">
+@if(checkoutForm.get('name')?.touched && checkoutForm.get('name')?.invalid){
+                    <div class="text-danger small">Name is required</div>
+                    }
+</div>
+<div class="form-group">
+<label>Mobile Number<span class="text-danger">*</span></label>
+<input type="text" formControlName="phone" placeholder="Enter phone number">
+ @if(checkoutForm.get('phone')?.touched && checkoutForm.get('phone')?.invalid){
+                    <div class="text-danger small">Enter valid phone number</div>
+                    }
+</div>
+<div class="form-group">
+<label>Address<span class="text-danger">*</span></label>
+<textarea formControlName="address" placeholder="Complete delivery address"></textarea>
+ @if(checkoutForm.get('address')?.touched && checkoutForm.get('address')?.invalid){
+                    <div class="text-danger small">Address is required</div>
+                    }
+</div>
+<div class="form-group">
+<label>Landmark (optional)</label>
+<input type="text" formControlName="landmark" placeholder="E.g., Near Bus Stop">
+</div>
+<div class="row-2">
+    <div>
+<label>Pincode<span class="text-danger">*</span></label>
+<input type="text" formControlName="pincode" placeholder="Enter pincode">
+ @if(checkoutForm.get('pincode')?.touched && checkoutForm.get('pincode')?.invalid){
+                    <div class="text-danger small">Pincode is required</div>
+                    }
+</div>
+<div>
+<label>State<span class="text-danger">*</span></label>
+<input type="text" formControlName="state" placeholder="Enter state">
+ @if(checkoutForm.get('state')?.touched && checkoutForm.get('state')?.invalid){
+                    <div class="text-danger small">State is required</div>
+                    }
+</div>
+</div>
+
+  <h3 class="section-title">Payment Method<span class="text-danger">*</span></h3> 
+    <div class="payment-container">
+       
+        <div class="payment-box footie">     
+        <input type="radio" name="payment" value="upi" formControlName="payment" [class.active]="checkoutForm.get('payment')?.value === 'upi'">
+        <label>UPI</label>
+        </div>
+<div class="payment-box footie">
+        <input type="radio" name="payment" formControlName="payment" value="card" [class.active]="checkoutForm.get('payment')?.value === 'card'">
+<label>Debit / Credit Card</label>
+</div>
+    <div class="payment-box footie">
+        <input type="radio" name="payment" formControlName="payment" value="cod" [class.active]="checkoutForm.get('payment')?.value === 'cod'">
+ <label>Cash On Delivery</label>
+    </div>
+   
+
+            </div>
+
+             <div class="summary-box">
+                    <h3>Order Summary</h3>
+                    <p>Total Items: {{items.length}}</p>
+                    <p>Total Price:<i class="bi bi-currency-rupee"></i>{{totalPay}}</p>
+                </div>
+<button type="submit" class="btn btn-success w-100 mt-3">Place Order<i class="bi bi-currency-rupee"></i>{{totalPay}}</button>
+    </form>
+ </div>
+
+
+
+</div>
+
+
+
+
+

@@ -1,0 +1,63 @@
+<div class="container mt-1">
+
+
+<h2 class="mb-4 text-center fw-bold">Admin - Orders Management</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-hover align-middle shadow-sm">
+    <thead class="table-dark text-center">
+    <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Address</th>
+        <th>Payment</th>
+        <th>Status</th>
+        <th>Assign Partner</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="orders.length === 0">
+            <td colspan="7" class="text-center py-4 fw-bold text-muted">
+                No Orders Found
+            </td>
+        </tr>
+    <tr *ngFor="let order of orders; let i= index" class="text-center">
+        <td>{{order.id}}</td>
+        <td>{{order.customerName}}</td>
+        <td>{{order.address}}</td>
+        <td><i class="bi bi-currency-rupee"></i>{{order.amount}}</td>
+        <td>
+
+<span class="badge status-badge"
+      [ngClass]="{
+        'bg-secondary text-white': (order?.status || '').trim().toLowerCase() === 'pending',
+        'bg-info text-dark'      : (order?.status || '').trim().toLowerCase() === 'accepted',
+        'bg-warning text-dark'   : (order?.status || '').trim().toLowerCase() === 'cooking',
+        'bg-primary text-white'  : (order?.status || '').trim().toLowerCase() === 'packed',
+        'bg-success text-white'  : (order?.status || '').trim().toLowerCase() === 'delivered',
+        'bg-purple'              : (order?.status || '').trim().toLowerCase() === 'assigned',
+        'bg-dark text-white'     : (order?.status || '').trim().toLowerCase() === 'picked'
+      }">
+  {{ (order?.status || '') | uppercase }}
+</span>
+        </td>
+        <td> 
+            <select  class="form-select form-select-am" #partnerSelect (change)="assignPartner(order.id, partnerSelect.value)">
+                <option selected disabled>{{ order.partnerId ? 'Partner:' + order.partnerId : 'Assign' }}</option>
+                <option *ngFor="let p of partnerList" [value]="p.id">{{p.name}}</option>
+            </select>
+        </td>
+        <td>
+            <div class="btn-group">
+            <button class="btn btn-sm btn-success" (click)="updateStatus(order.id,'accepted')">Accepted</button>
+            <button class="btn btn-sm btn-warning" (click)="updateStatus(order.id,'cooking')">Cooking</button>
+            <button class="btn btn-sm btn-primary" (click)="updateStatus(order.id,'packed')">Packed</button>
+            <button class="btn btn-sm btn-primary" (click)="updateStatus(order.id,'assigned')">Assigned</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="trackOrder(order.id)">Track</button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>

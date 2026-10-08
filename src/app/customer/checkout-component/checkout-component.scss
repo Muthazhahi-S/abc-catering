@@ -1,0 +1,147 @@
+.checkout-container{
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 30px;
+    padding: 30px 80px;
+    background: #f8f8f8;
+    min-height: 100vh;
+}
+.checkout-left{
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  
+}
+  .checkout-left h2{
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+.form-group{
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    .form-group label{
+        margin-bottom: 6px;
+        font-weight: 500;
+    }
+}
+
+ input,
+textarea{
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+    }
+textarea{
+        height: 80px;
+        resize: none;
+}
+
+
+.row-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 15px;
+}
+.section-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.payment-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid #e1e1e1;
+}
+.payment-box input[type ="radio"]{
+    width: 22px;
+    height: 22px;
+    accent-color: #e23744;
+}
+.payment-box.footie:hover{
+    background-color: #fff5f5;
+}
+.payment-box .label{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.left{
+    flex: 1;
+}
+.bill-card{
+    background: #fff;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid #e1e1e1;
+}
+.bill-title{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 15px 0;
+    border-bottom: 1px solid #e1e1e1;
+    gap: 20px;
+    padding: 10px;
+}
+.bill-row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: #333;
+}
+.bill-row.total{
+    font-size: 17px;
+    margin-top: 10px;
+}
+.bill-card hr{
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    margin: 15px 0;
+}
+.bill-row.discount{
+    color: #2d9c2d;
+    font-weight: 600;
+}
+.bill-row.discount span:last-child{
+    color: #2d9c2d;
+}
+
+
+.final{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.pay-btn{
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: #ff4d4d;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+
+    .pay-btn:hover{
+        background: #ff1f1f;
+    }
+}

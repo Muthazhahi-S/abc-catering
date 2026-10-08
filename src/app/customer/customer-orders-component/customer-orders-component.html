@@ -1,0 +1,11 @@
+<h2>My Orders</h2>
+<div *ngIf="myOrders.length === 0">
+    <p>No orders found.</p>
+</div>
+<div *ngFor="let order of myOrders" class="order-card">
+    <h3>Order Id:#{{order.id}}</h3>
+    <p>Status: <b>{{order.status }}</b></p>
+    <p>Total: {{order.amount}}</p>
+    <!-- <button [routerLink]="['/customer/track-order', order.id]">Track</button> -->
+</div>
+

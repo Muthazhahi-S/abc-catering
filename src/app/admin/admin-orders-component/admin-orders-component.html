@@ -1,0 +1,48 @@
+
+<div class="card">
+<h2>Admin - Orders</h2>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<table class="table" *ngIf="orders?.length;else empty">
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Restaurant</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Partner</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of orders">
+            <td>{{o.id}}</td>
+             <td>{{o.customerName}}</td>
+              <td>{{o.restaurantName}}</td>
+               <td>{{o.amount}}</td>
+                <td>{{o.status}}</td>
+                 <td>{{o.partnerId || '-'}}</td>
+                 <td>
+                 <select #st (change)="updateStatus(o.id, st.value)">
+                        <option value="">Change...</option>
+                        <option value="CONFIRMED">CONFIRMED</option>
+                        <option value="PREPARING">PREPARING</option>
+                        <option value="READY">READY</option>
+                        <option value="ASSIGNED_TO_DP">ASSIGNED TO DP</option>
+                        <option value="CANCEL">CANCEL</option>
+                    </select>
+                   
+                    <div *ngIf="o.status === 'ASSIGNED_TO_DP' || o.status === 'READY'">
+  <select [(ngModel)]="o.assignedTo">
+    <option *ngFor="let p of deliveryPartners" [value]="p.id">{{ p.name }}</option>
+  </select>
+  <button [disabled]="!o.assignedTo" (click)="assignPartner(o.id, o.assignedTo!)">Assign</button>
+</div>
+                 </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #empty>
+    <div>No orders currently</div>
+</ng-template>
+</div>
